@@ -1,16 +1,24 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
-import { useSelector } from 'react-redux';
+import { StyleSheet, Text, View,TouchableOpacity } from "react-native";
+import { useSelector,useDispatch } from 'react-redux';
+import { addItem } from '../store/actions/cart.action'; 
 
 function BreadDetailScreen() {
+  const dispatch = useDispatch();
   const bread = useSelector(state => state.breads.selected)
 
+  const handlerAddItemCart = () => dispatch(addItem(bread));
   return (
     <View style={styles.screen}>
       <Text style={styles.title}>{bread.name}</Text>
       <Text>{bread.description}</Text>
       <Text>{bread.price}</Text>
       <Text>{bread.weight}</Text>
+      <TouchableOpacity onPress={handlerAddItemCart}>
+        <View style={styles.button}>
+          <Text style={styles.textButton}>Agregar Al Carrito</Text>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }
@@ -26,6 +34,20 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontFamily: 'OpenSansBold',
     marginBottom: 10,
+  },
+  button: {
+    width: 200,
+    padding: 15,
+    margin: 15,    
+    backgroundColor: '#ccc',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 20,
+    borderWidth: 2,
+    borderColor: '#bbb'
+  },
+  textButton: {
+    fontFamily: 'OpenSansBold',
   }
 });
 

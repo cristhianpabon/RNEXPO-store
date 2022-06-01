@@ -25,7 +25,7 @@ export const getCategory = (id) => {
             })
     
             const result = await response.json()
-            console.log(result);
+            // console.log(result);
             const items = orderByUserID(result, 'user')
             dispatch({
                 type: GET_CATEGORY,

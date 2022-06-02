@@ -5,6 +5,7 @@ import CategoryReducer from './reducers/category.reducer';
 import CartReducer from './reducers/cart.reducer';
 import BreadsReducer from './reducers/breads.reducer';
 import OrderReducer from './reducers/order.reducer';
+import ProfileReducer from './reducers/profile.reducer';
 import ProductReducer from './reducers/product.reducer';
 
 const RootReducer = combineReducers({
@@ -12,6 +13,7 @@ const RootReducer = combineReducers({
     cart: CartReducer,
     breads: BreadsReducer,
     order: OrderReducer,
+    profile: ProfileReducer,
     product: ProductReducer
 });
 
